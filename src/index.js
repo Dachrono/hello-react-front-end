@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import './index.css';
-import { getGreetings } from "./redux/slice/greetingsSlice";
+import { getGreetings } from './redux/slice/greetingsSlice';
 import App from './App';
 
 store.dispatch(getGreetings());
@@ -13,6 +13,6 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-      </Provider>  
-  </React.StrictMode>
+    </Provider>
+  </React.StrictMode>,
 );

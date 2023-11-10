@@ -2,14 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getGreetings = createAsyncThunk('greetings/getGreetings', async () => {
-    try {
-      const response = await axios.get('http://127.0.0.1:3000/api/v1/greetings');
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
-  },
-);
+  try {
+    const response = await axios.get('http://127.0.0.1:3000/api/v1/greetings');
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+});
 
 const initialState = {
   greetings: [],
@@ -35,7 +34,7 @@ const greetingsSlice = createSlice({
         state.loading = false;
         state.hasErrors = true;
       });
-  }
+  },
 });
 
 export default greetingsSlice.reducer;
