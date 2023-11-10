@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Greetings from './Greetings'
+import Greetings from './components/Greetings'
 import './App.css';
 
 function App() {
